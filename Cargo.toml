@@ -1,0 +1,26 @@
+[package]
+name = "mokuz"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+hyper = { version = "1", features = ["full"] }
+hyper-util = { version = "0.1.14", features = ["tokio", "server", "http1", "http2"] }
+tokio = { version = "1", features = ["full"] }
+tokio-rustls = { version = "0.25", default-features = false, features = ["tls12"] }
+rustls = { version = "0.22.4", features = ["tls12"] }
+tokio-util = "0.7"
+http-body-util = "0.1"
+bytes = "1"
+anyhow = "1"
+rustls-pki-types = "1"
+futures-util = "0.3.31"
+futures-core = "0.3.31"
+rustls-pemfile = "2.2.0"
+
+[build-dependencies]
+cc = "1.0"
+
+[profile.release]
+lto = true
